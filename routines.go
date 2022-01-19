@@ -8,8 +8,16 @@ import (
 )
 
 func main() {
+	// Go Routines are scheduled by Go Runtime
+	// Go Routines are lighter wight than OS threads
+	// Fewer context switching
+	// Go parallelism is handled by go runtime
+	// Go layers Go Routines on top of threads, when a GoRoutine blocks (i.e Working on a network IO) Go swaps it out
+	// for another Go Routine but running on the same thread.
+	// Even with Go Routines, there's gonna be block conditions needing a new thread, its just that happens way less often
+	// Go concurrency model uses the Actor model. Go routines communicate and share data using channels
 
-	//go parallelism is handled by go runtime
+	
 	runtime.GOMAXPROCS(2)
 
 	var waitGrp sync.WaitGroup
@@ -30,4 +38,15 @@ func main() {
 	}()
 
 	waitGrp.Wait()
+
+	//Channels
+	//Unbuffered channels can't hold data, any go routine putting data 1 to one blocks until there's a receiver on the other end forcing a sync behavior
+	//Buffered channels can hold data, they can put data on chanels and don't care if there was any receiver on the other end -> async behavior
+
+	//creating unbuffered channels
+	myUnBufferedChann := make(chan int)
+
+	//creating buffered channels
+	myBufferedChann := make(chan int, 5) // We are creating a channel that can hold up to 5 integers
+
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
@@ -10,13 +11,21 @@ func main() {
 	//
 	//	}
 
+	fmt.Println("## For-range loop to iterate over an array ##")
 	courseList := []string{"docker", "kubernetes"}
-	for _, course := range courseList {
+	for i, course := range courseList {
 		fmt.Println(course)
+		fmt.Println(i)
 	}
 
-	for i := 0; i < 10; i++ {
-
+	fmt.Println("## For loop with pre and post statements ##")
+	for timer := 10; timer >= 0; timer-- {
+		if timer == 0 {
+			fmt.Println("Boom!")
+			break
+		}
+		fmt.Println(timer)
+		time.Sleep(1 * time.Second)
 	}
 
 }

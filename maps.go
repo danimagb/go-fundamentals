@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 func main() {
+
+	//Maps are key-vaule pairs, implementation of hash table
 	//Maps are reference types and dynamically resizable
 	//They do not have order
 	//Unsafe for concurrency
@@ -11,16 +13,17 @@ func main() {
 
 	leagueTitles := make(map[string]int)
 	leagueTitles["Porto"] = 31
-	leagueTitles["Benfica"] = 0
-	leagueTitles["Sporting"] = 0
+	leagueTitles["Benfica"] = 1
+	leagueTitles["Sporting"] = 2
 
 	/*recentHead2Head := map[string]int{
 		"Porto" : 5,
 		"Benfica" : 0
 	}*/
 
+	// The order is not guaranteed while looping a map, it can start in a different offset every time
 	for key, value := range leagueTitles {
-		fmt.Printf("\n Key is: %v Value is: %v", key, value)
+		fmt.Printf("\n Key is: %v Value is: %v\n", key, value)
 	}
 
 	fmt.Println(leagueTitles["Porto"])
@@ -35,4 +38,6 @@ func main() {
 	delete(leagueTitles, "Benfica")
 
 	fmt.Println(leagueTitles)
+
+
 }

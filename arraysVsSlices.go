@@ -6,11 +6,15 @@ import (
 
 func main() {
 
-	//Slices are based on arrays
+	//Arrays have a fixed limit, they are not resizable
+
+	//Slices are based on arrays, but they are resizable
 	//Slices are passed to functions by reference
 
 	//creates a slice with initial lenght of 10 and a capacity of 100(creates an array with 100)
 	//myCourses := make([]string, 10, 100)
+	//myCourses[0] = "Docker"
+	//myCourses[1] = "Kubernetes"
 
 	//Creates a slice with initial len 6 and capacity of 6
 	//myIntegers := []int{1, 2, 3, 4, 5, 6}

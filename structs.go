@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	//Structs are custom data types (OO programming)
+	//Structs are custom data types
 	//Go doesn't have Objects, Classes and inheritance
 
 	type courseMeta struct {
